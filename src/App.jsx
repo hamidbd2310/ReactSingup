@@ -18,7 +18,14 @@ const InputOnchange=(e)=>{
 
   const SaveData= async(e)=>{
     e.preventDefault();
-   await axios.post("https://api.bseba.com/api/registration",loginData )
+   
+
+    if(loginData.pass.length<8){
+      alert("8 Char Password Required")
+    }
+    else{
+      await axios.post("https://api.bseba.com/api/registration",loginData )
+    }
     
   }
 
