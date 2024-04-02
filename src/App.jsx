@@ -16,19 +16,29 @@ const InputOnchange=(e)=>{
     [key]:value
   }))}
 
-  const SaveData= async(e)=>{
+  const SaveData = async (e) => {
     e.preventDefault();
-   
-
-    if(loginData.pass.length<8){
-      alert("8 Char Password Required")
+  
+    if (loginData.password.length < 8) {
+      alert("Password must be at least 8 characters long.");
+    } else {
+      try {
+        const response = await axios.post(
+          "https://api.bseba.com/api/registration",
+          loginData
+        );
+  
+        // Assuming the API returns some data
+        console.log("API response:", response.data);
+  
+        alert(response.data.message); // Alert the message from the API response
+      } catch (error) {
+        console.error("Error:", error);
+        alert("An error occurred while saving data. Please try again later.");
+      }
     }
-    else{
-      await axios.post("https://api.bseba.com/api/registration",loginData )
-    }
-    
-  }
-
+  };
+  
 
 //View
 
