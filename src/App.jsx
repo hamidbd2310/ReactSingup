@@ -28,10 +28,9 @@ const InputOnchange=(e)=>{
           loginData
         );
   
-        // Assuming the API returns some data
         console.log("API response:", response.data);
   
-        alert(response.data.message); // Alert the message from the API response
+        alert(response.data.message); 
       } catch (error) {
         console.error("Error:", error);
         alert("An error occurred while saving data. Please try again later.");
